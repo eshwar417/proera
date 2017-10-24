@@ -1,0 +1,135 @@
+
+<html>
+<head>
+	<title>your app</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="yourapp.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script>
+	//mail id validation
+function mailValidation(m)
+  {
+	  var array=m.split("@");
+		if(array.length>=2)
+		{
+			
+			if(array[0].length>=2)
+			{
+			var mani=array[1];
+			var array1=mani.split(".");
+			if(array1.length>=2)
+				{
+					if(array1[0].length>=5)
+					{
+						if(array1[1].length>=2)
+						{
+							document.getElementById("mailIdError").innerHTML="";
+						}
+						else
+						{
+							 document.getElementById("mailIdError").innerHTML="E-mail id not valid";
+							 document.getElementById("mailIdError").style.color="red";
+						}
+					}
+					else
+					{
+						 document.getElementById("mailIdError").innerHTML="E-mail id not valid";
+						 document.getElementById("mailIdError").style.color="red";
+					}
+				}
+				else
+				{
+					 document.getElementById("mailIdError").innerHTML="E-mail id not valid";
+					 document.getElementById("mailIdError").style.color="red";
+					
+				}
+			}
+				else
+				{
+					 document.getElementById("mailIdError").innerHTML="E-mail id not valid";
+					 document.getElementById("mailIdError").style.color="red";
+				}
+		}
+		else
+		{
+			 document.getElementById("mailIdError").innerHTML="E-mail id not valid";
+			 document.getElementById("mailIdError").style.color="red";
+		}
+	  
+  }
+  //password validation
+		 function passWordValidation(p){  
+	  var flag=0;
+		  var a=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+		 for(var i=0;i<a.length;i++)
+			 {
+			 if(p.charAt(0)==a[i])
+				 {
+				 if(p.charAt(p.length-1)!='@' && p.charAt(p.length-1)!='#' && p.charAt(p.length-1)!='$' && p.charAt(p.length-1)!='&' && p.charAt(p.length-1)!='*' && p.charAt(p.length-1)!='%')
+					 {
+					 flag=1;
+					 }
+				 }
+			 }
+		 if(flag==1)
+			 {
+			 document.getElementById("passWordError").innerHTML="";
+			 
+			 }
+		 else
+			 {
+			 document.getElementById("passWordError").innerHTML="password is not valid(1st Letter should capital& Last letter should not symbol)";
+			 document.getElementById("passWordError").style.color="red";
+			 }
+	  }
+	</script>
+	
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row totaldiv">
+			<div class="container">
+				<div class="row maindiv">
+					<div class="col-md-6 col-sm-6 col-xs-12 firstdiv">
+						<h1 class="yourapp">Your App</h1>
+						<p class="simple">Simple .Clean. Beautiful</p>
+						<div class="loremdiv">
+							<p class="list"><span class="glyphicon glyphicon-chevron-right"style="color:white"></span>lorem imsum dolor sit amet.</p>
+							<p class="list"><span class="glyphicon glyphicon-chevron-right"style="color:white"></span>lorem imsum dolor sit amet.</p>
+							<p class="list"><span class="glyphicon glyphicon-chevron-right"style="color:white"></span>lorem imsum dolor sit amet.</p>
+					    </div>
+					</div>
+					<div class="col-md-6 col-sm-6 col-xs-12 seconddiv">
+						<h2 class="signin">Sign In</h2>
+						<div class="row" style="margin-top:50px">
+							<div class="col-md-2 col-sm-2 col-xs-12">
+							</div>
+							<div class="col-md-8 col-sm-8 col-xs-12">
+								<form>
+									<div class="form-group">
+								        <input type="text"  class="form-control" onfocusout="mailValidation(this.value)"  placeholder="E-mail" required>
+										<span id="mailIdError"></span>
+									</div>
+									<div class="form-group">
+									    <input type="password" class="form-control" onfocusout="passWordValidation(this.value)"  placeholder="Password" required>
+										<span id="passWordError"></span>
+									</div>
+									<button type="button" class="btn btn-primary space">Sign In</button>
+									<p class="or">OR</p>
+									<button type="button" class="btn btn-primary space1">Sign In With Facebook</button>
+								</form>
+							</div>
+							<div class="col-md-2 col-sm-2 col-xs-12">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>
